@@ -39,14 +39,14 @@ CREATE TABLE bronze.crm_sales_details (
 GO
 
 
--- Check if 'bronze.crm_prod_info' table exists or not. If exists then drop and create a new one
+-- Check if 'bronze.crm_prd_info' table exists or not. If exists then drop and create a new one
 
-IF OBJECT_ID('bronze.crm_prod_info','U') IS NOT NULL
-	DROP TABLE bronze.crm_prod_info;
+IF OBJECT_ID('bronze.crm_prd_info','U') IS NOT NULL
+	DROP TABLE bronze.crm_prd_info;
 
 GO
 
-CREATE TABLE bronze.crm_prod_info (
+CREATE TABLE bronze.crm_prd_info (
 	prd_id INT,
 	prd_key NVARCHAR(50),
 	prd_nm NVARCHAR(50),
