@@ -1,9 +1,26 @@
---here we generated surrogated key with window FUNCTION
+/*
+*******************************************************************************
+DDL Script: Create Gold Views
+*******************************************************************************
+Script Purpose:
+    This script creates views for the Gold layer in the data warehouse. 
+    The Gold layer represents the final dimension and fact tables (Star Schema)
 
---as the gender column of CRM and ERP table had mistmatcn with the switch case we ensure the priority goes to CRM and if n/a or is present in CRM then priority goes to ERP and if ERP has NULL the it
---will have 'n/a'
+    Each view performs transformations and combines data from the Silver layer 
+    to produce a clean, enriched, and business-ready dataset.
 
---we also renamed the columns for end business users
+Usage:
+    - These views can be queried directly for analytics and reporting.
+
+-here we generated surrogated key with window FUNCTION
+
+-as the gender column of CRM and ERP table had mistmatcn with the switch case we ensure the priority goes to CRM and if n/a or is present in CRM then priority goes to ERP and if ERP has NULL the it
+will have 'n/a'
+
+-we also renamed the columns for end business users
+********************************************************************************
+*/
+
 
 IF OBJECT_ID ('gold.dim_customer','U') IS NOT NULL
 DROP VIEW gold.dim_customer;
