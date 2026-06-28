@@ -21,13 +21,13 @@ will have 'n/a'
 
 --we also renamed the columns for end business users
 
-IF OBJECT_ID ('gold.dim_customer','U') IS NOT NULL
-DROP VIEW gold.dim_customer;
+IF OBJECT_ID ('gold.dim_customers','V') IS NOT NULL
+DROP VIEW gold.dim_customers;
 
 GO
 
 
-CREATE VIEW gold.dim_customer AS 
+CREATE VIEW gold.dim_customers AS 
 
 SELECT 
 	ROW_NUMBER() OVER(ORDER BY cci.cst_id) AS customer_key,
@@ -54,7 +54,7 @@ select * from gold.dim_customer
 --here we have generated a similar surrogated key based on crm start date and product_key
 --we are taking the records from crm prd info table where end_date is null this signifies records which have no end_date means they are active ones. and business does need to know their history now
 
-IF OBJECT_ID ('gold.dim_products','U') IS NOT NULL
+IF OBJECT_ID ('gold.dim_products','V') IS NOT NULL
 DROP VIEW gold.dim_customer;
 
 GO
@@ -86,7 +86,7 @@ select * from gold.dim_products;
 --we have done silver.crm_sales_details csd LEFT JOIN gold.dim_products gdp AND also >> silver.crm_sales_details csd LEFT JOIN gold.dim_customer gdc
 --to use foreign key relation between 2 silver tables and 1 golde view.
 
-IF OBJECT_ID ('gold.fact_sales','U') IS NOT NULL
+IF OBJECT_ID ('gold.fact_sales','V') IS NOT NULL
 DROP VIEW gold.dim_customer;
 
 GO
