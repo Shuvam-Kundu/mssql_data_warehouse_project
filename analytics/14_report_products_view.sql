@@ -81,6 +81,5 @@ SELECT
 	total_quantity_sold,
 	CAST(total_sale_value * 1.00 / total_order AS DECIMAL(10,1)) AS sale_per_order
 FROM product_aggregation;
+GO
 
-
-SELECT * FROM gold.product_report;
