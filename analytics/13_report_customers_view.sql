@@ -25,7 +25,7 @@ IF OBJECT_ID('gold.report_customers', 'V') IS NOT NULL
     DROP VIEW gold.report_customers;
 GO
 
-CREATE VIEW gold.customers_report AS
+CREATE VIEW gold.report_customers AS
 WITH base_query AS (
 SELECT
 	s.order_number,
@@ -83,8 +83,4 @@ SELECT
 	END AS monthly_avg_spend
 FROM customer_aggregation;
 
-
-
-SELECT * FROM gold.customer_report;
-
-
+GO
