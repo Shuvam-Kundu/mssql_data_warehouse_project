@@ -17,7 +17,7 @@ Usage:
 --here we generated surrogated key with window FUNCTION
 
 --as the gender column of CRM and ERP table had mistmatcn with the switch case we ensure the priority goes to CRM and if n/a or is present in CRM then priority goes to ERP and if ERP has NULL the it
-will have 'n/a'
+--will have 'n/a'
 
 --we also renamed the columns for end business users
 
@@ -46,10 +46,7 @@ FROM silver.crm_cust_info cci
 LEFT JOIN silver.erp_cust_az12 eca ON cci.cst_key = eca.cid
 LEFT JOIN silver.erp_loc_a101 ela ON cci.cst_key = ela.cid;
 
-
-select * from gold.dim_customer
-
-
+GO
 
 --here we have generated a similar surrogated key based on crm start date and product_key
 --we are taking the records from crm prd info table where end_date is null this signifies records which have no end_date means they are active ones. and business does need to know their history now
@@ -78,10 +75,7 @@ LEFT JOIN silver.erp_px_cat_g1v2 epcg
 ON cpi.cat_id = epcg.id
 WHERE cpi.prd_end_dt IS NULL;
 
-
-select * from gold.dim_products;
-
-
+GO
 
 --we have done silver.crm_sales_details csd LEFT JOIN gold.dim_products gdp AND also >> silver.crm_sales_details csd LEFT JOIN gold.dim_customer gdc
 --to use foreign key relation between 2 silver tables and 1 golde view.
@@ -109,5 +103,4 @@ ON csd.sls_prd_key = gdp.product_number
 LEFT JOIN gold.dim_customers gdc
 ON csd.sls_cust_id = gdc.customer_id;
 
-
-select * from gold.fact_sales
+GO
