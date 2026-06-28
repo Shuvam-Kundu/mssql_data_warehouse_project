@@ -21,8 +21,11 @@ Highlights:
 *******************************************************************************
 */
 
+IF OBJECT_ID('gold.report_customers', 'V') IS NOT NULL
+    DROP VIEW gold.report_customers;
+GO
 
-CREATE VIEW gold.customer_report AS
+CREATE VIEW gold.customers_report AS
 WITH base_query AS (
 SELECT
 	s.order_number,
@@ -37,7 +40,7 @@ SELECT
 	c.birthdate,
 	DATEDIFF(YEAR,birthdate,GETDATE()) AS age
 FROM gold.fact_sales s
-LEFT JOIN gold.dim_customer c
+LEFT JOIN gold.dim_customers c
 ON s.customer_key = c.customer_key
 WHERE s.order_date IS NOT NULL),
 
