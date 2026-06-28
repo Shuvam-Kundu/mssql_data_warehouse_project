@@ -106,7 +106,7 @@ SELECT
 FROM silver.crm_sales_details csd
 LEFT JOIN gold.dim_products gdp
 ON csd.sls_prd_key = gdp.product_number
-LEFT JOIN gold.dim_customer gdc
+LEFT JOIN gold.dim_customers gdc
 ON csd.sls_cust_id = gdc.customer_id;
 
 
