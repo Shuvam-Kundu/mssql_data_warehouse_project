@@ -1,12 +1,14 @@
-/*feat: add bronze layer table structures
-
-- Creates DDL scripts for CRM source tables (cust_info, prd_info, sales_details)
-- Creates DDL scripts for ERP source tables (cust_az12, px_cat_g1v2, loc_a101)
-- Includes 'DROP IF EXISTS' logic for clean re-runs
+/*
+********************************************************************************************
+DDL Script: Creates Bronze Tables
+********************************************************************************************
+Purpose: This script creates tables for the bronze schema, dropping existing tables if
+		 they already exists.
+********************************************************************************************
+*/
 
 IF OBJECT_ID('bronze.crm_cust_info','U') IS NOT NULL
 	DROP TABLE bronze.crm_cust_info;
-*/
 
 GO
 
