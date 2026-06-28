@@ -1,10 +1,17 @@
 /*
 feat(bronze): add stored procedure for full data load
+************************************************************************************************************
+Stored Procedure: Load Bronze Layer (Source -> Bronze)
+************************************************************************************************************
+Purpose: This SP loads data into Bronze schema from the external source csv files.
 
-- Create `bronze.load_bronze` stored procedure to automate ELT pipeline.
-- Implement TRUNCATE and BULK INSERT operations for CRM and ERP source files.
-- Add execution time logging for individual tables and the overall batch.
-- Implement basic TRY-CATCH error handling with detailed error printing.
+Actions Performed: 1. Truncates the bronze tables
+				   2. Uses the BULK INSERT command to load data from csv files to bronze tables.
+
+Parameters: This SP does not takes any parameters and returns any value
+
+Usage: EXEC bronze.load_bronze
+************************************************************************************************************
 */
 
 
