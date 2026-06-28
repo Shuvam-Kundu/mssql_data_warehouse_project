@@ -55,7 +55,7 @@ select * from gold.dim_customer
 --we are taking the records from crm prd info table where end_date is null this signifies records which have no end_date means they are active ones. and business does need to know their history now
 
 IF OBJECT_ID ('gold.dim_products','V') IS NOT NULL
-DROP VIEW gold.dim_customer;
+DROP VIEW gold.dim_products;
 
 GO
 
@@ -87,7 +87,7 @@ select * from gold.dim_products;
 --to use foreign key relation between 2 silver tables and 1 golde view.
 
 IF OBJECT_ID ('gold.fact_sales','V') IS NOT NULL
-DROP VIEW gold.dim_customer;
+DROP VIEW gold.fact_sales;
 
 GO
 
